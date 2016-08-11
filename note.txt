@@ -1,0 +1,49 @@
+1. composer create-project --prefer-dist laravel/laravel laravel
+
+2. cd laravel
+
+3. After installing Laravel, the first thing we need to do is to set the write permission for the directory storage and bootstrap/cache.
+
+4. Edit .env file. (set database and config)
+
+5. php artisan migrate:install
+
+6. https://github.com/barryvdh/laravel-debugbar
+composer require barryvdh/laravel-debugbar
+Barryvdh\Debugbar\ServiceProvider::class,
+'Debugbar' => Barryvdh\Debugbar\Facade::class,
+php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"
+
+7. composer.json
+"guzzlehttp/guzzle": "~4.0"
+composer update
+
+8. Configure Mail credentials
+MAILGUN_SECRET=key-1ba520185979d6619be8edf1b4a855c1
+MAILGUN_DOMAIN=sandbox4613982ee30b48fd86f940fdadbd362e.mailgun.org
+
+MAIL_DRIVER=mailgun
+MAIL_HOST=smtp.mailgun.org
+MAIL_PORT=587
+MAIL_USERNAME=theveryverybig@gmail.com
+MAIL_PASSWORD=srirambe@828
+MAIL_ENCRYPTION=null
+
+9. Delete default migration file inside database\migrations
+
+
+10. Install Auth package Sentinel.
+https://cartalyst.com/manual/sentinel/2.0#laravel-5
+composer require cartalyst/sentinel "2.0.*"
+Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+
+'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
+'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
+'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+
+php artisan vendor:publish --provider="Cartalyst\Sentinel\Laravel\SentinelServiceProvider"
+
+11. php artisan migrate
+Note: Before running the following command, please remove the default Laravel migrations to avoid table collision. (Step - 9)
+
+12. 
